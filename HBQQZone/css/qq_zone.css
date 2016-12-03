@@ -1,0 +1,153 @@
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, figure {
+    margin: 0;
+    padding: 0;
+}
+
+body, input, textarea, select, button {
+    font-family: punctuation,"PingFangSC-Regular","Microsoft Yahei","sans-serif";
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+body {
+    line-height: 1.334;
+    font-size: 12px;
+}
+body {
+    color: #333;
+}
+body, .c_tx2 {
+    color: #333;
+}
+.top_inner {
+    position: fixed;
+    /*z-index: 500;*/
+    width: 100%;
+    top: 0;
+    left: 0;
+    /*_position: absolute;*/
+    height: 41px;
+    color: #bababa;
+    -webkit-box-shadow: 0 1px 0 rgba(0,0,0,.2);
+    -moz-box-shadow: 0 1px 0 rgba(0,0,0,.2);
+    box-shadow: 0 1px 0 rgba(0,0,0,.2);
+}
+
+.top_inner {
+    background-color: #1f1f1f;
+}
+
+
+
+ .fix-container {
+     position: relative;
+     height: 41px;
+     /*z-index: 550;*/
+ }
+.top-fix-wrap {
+    width: 1046px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.top_inner .logo {
+    float: left;
+    width: 90px;
+    height: 41px;
+    background-image: url(sprite/icenter.32-adg161202175607.png);
+    background-position: -63px 0;
+    _background-image: url(sprite/icenter.ie6-adg161202175607.png);
+    _background-position: -63px 0;
+    background-color: white;
+    line-height: 123px;
+    overflow: hidden;
+}
+.top-fix-inner a {
+    color: #fff;
+}
+a {
+    text-decoration: none;
+}
+
+.top_inner .top-nav {
+    float: left;
+    padding-left: 10px;
+}
+
+.top-nav .nav-list {
+    float: left;
+    position: relative;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+.top-nav .nav-list-inner a {
+    position: relative;
+    display: inline-block;
+    padding: 0 10px 0 33px;
+    line-height: 40px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 1px;
+}
+
+.top_inner .top-nav .nav-list-inner a:hover, .top-fix-bar .top-nav .nav-list-inner a.nav-hover, .top-fix-bar .user-info .user-home:hover, .top-fix-bar .user-info .logout:hover, .top-fix-bar .user-info .logout-new:hover, .top-fix-bar .back-to-icenter:hover, .top-fix-bar .music-container .music-panel .music-dynamic, .top-fix-bar .music-container .music-panel .music-play {
+    background-color: #303030;
+}
+
+.top-nav .nav-list-inner i.ui-icon {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    left: 10px;
+    top: 12px;
+}
+
+.top-nav .nav-list-inner i.icon-icenter {
+    background-image: url(sprite/35.32-adg161129151106.png);
+    background-position: -458px -156px;
+    _background-image: url(sprite/35.ie6-adg161129151106.png);
+    _background-position: -782px 0;
+}
+
+.top_inner .ui-icon {
+    display: inline-block;
+}
+
+.ui-icon {
+    display: inline-block;
+    background-repeat: no-repeat;
+    font-size: 0;
+    overflow: hidden;
+    -webkit-text-size-adjust: none;
+}
+
+.top_inner .top-nav .nav-list-inner i.drop-down-arrow {
+    width: 0;
+    height: 0;
+    font-size: 0;
+    border-width: 3px;
+    border-style: solid dashed dashed dashed;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    _zoom: 1;
+    line-height: 0;
+    position: absolute;
+    top: 19px;
+    right: 8px;
+}
+
+.top_inner .music-container {
+    float: right;
+    width: 50px;
+    padding: 10px;
+    margin-top: 1px;
+    position: relative;
+}
