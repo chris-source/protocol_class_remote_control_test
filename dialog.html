@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,shrink-to-fit=no">
+	<link rel="stylesheet" href="../css/main.css">
+	<link rel="stylesheet" href="../css/animate.css">
+	<link rel="stylesheet" href="../css/loading.css">
+	<link rel="stylesheet" href="../css/select.css">	
+	<link rel="stylesheet" href="../css/dialog.css">
+	<style>
+		  body{
+			  margin:0;
+			  text-align: center;
+		  }
+		.p_home{
+			background-color:#cccccc;
+		}
+	</style>
+	<script>start_time = +new Date();</script>
+    <title>no route</title>
+</head>
+<body>
+<div class="main" id="main">
+	<input type="button" value="传递模版 dialog" id="btn_template">
+	<input type="button" value="传递字符串 dialog" id="btn_content">
+	<input type="button" value="传递ViewModel dialog" id="btn_vm">
+	<input type="button" value="传递ViewModel dialog(刷新dialog)" id="btn_vm_refresh">
+	<input type="button" value="传递ViewModel dialog(无关闭按钮)" id="btn_vm_no_btn_close">
+	<input type="button" value="移动端" id="btn_nosupport">
+</div>
+
+<script type="text/template" id="test">
+	<h2>test</h2>
+	<input type="button" value="close dialog" id="btn_close">
+</script>
+
+<script type="text/template" id="test1">
+	<h2>test1</h2>
+	<div class="input_wrapper" style="position:relative;"><input type="text" sg-placeholder="hello world"></div>
+	<input type="button" value="close dialog" id="btn_close">
+	<div sg-component="Switch"></div>
+</script>
+
+<script src="../js/tween.js" type="text/javascript"></script>
+<script src="../js/fastclick.js" type="text/javascript"></script>
+<script src="../js/jquery.js" type="text/javascript"></script>
+<script src="../js/loading.js" type="text/javascript"></script>
+<script src="../js/main.js" type="text/javascript"></script>
+<script src="../js/config.js" type="text/javascript"></script>
+<script src="../js/utils.js" type="text/javascript"></script>
+<script src="../js/template.js" type="text/javascript"></script>
+<script src="../js/components/action.js" type="text/javascript"></script>
+<script src="../js/cache.js" type="text/javascript"></script>
+<script src="../js/model.js" type="text/javascript"></script>
+<script src="../js/event.js" type="text/javascript"></script>
+<script src="../js/view.js" type="text/javascript"></script>
+<script src="../js/component.js" type="text/javascript"></script>
+<script src="../js/components/dialog.js" type="text/javascript"></script>
+<script src="../js/components/placeholder.js" type="text/javascript"></script>
+<script src="../js/components/switch.js" type="text/javascript"></script>
+<script>
+	end_time = +new Date();
+	sg.init();
+
+	/* demo1 */
+	var dialog_template = sg.Component.Dialog({
+		persist : true,
+		template : 'test',
+		contentClass : 'sg_animate expansion_y in'
+	});
+	sg.View.define('test', {
+		afterRender : function($dom) {
+			$dom.find('#btn_close').bind('click', function() {
+				dialog_template.hide();
+			});
+		}
+	});
+	$('#btn_template').bind('click', function() {
+		dialog_template.show();
+	});
+
+	/* demo2 */
+	var dialog_content = sg.Component.Dialog({
+		content : '<h2>test</h2> <input type="button" value="close dialog" id="btn_close"><h2>test1</h2><div sg-component="Switch"></div>',
+		contentClass : 'sg_animate expansion_y in',
+		persist : true
+	});
+	dialog_content.$dom.find('#btn_close').bind('click', function() {
+		dialog_content.hide();
+	});
+	$('#btn_content').bind('click', function() {
+		dialog_content.show();
+	});
+
+	/* demo3 */
+	sg.View.define('test1', {
+		afterRender : function($dom) {
+			var self = this;
+			$dom.find('#btn_close').bind('click', function() {
+				self.dialog.hide();
+			});
+		}
+	});
+	var vm_test1 = sg.View.require('test1');
+	var dialog_vm = sg.Component.Dialog({
+		vm : vm_test1,
+		persist : true,
+		contentClass : 'sg_animate expansion_y in'
+	});
+	var dialog_no_support = sg.Component.Dialog({
+		persist: true,
+		closeBtn: false,
+		mobileDefaultTemplate: {
+			title: {
+				text: '该功能须更新到<br>名片全能王app最新版本<br>才可使用',
+				css: ''
+			},
+			btn_left: {
+				text: '关闭',
+				css: 'close_btn'
+			},
+			btn_right: {
+				text: '立即下载',
+				css: 'link',
+				callback: function(self) {
+					self.$dom.remove();
+					location.href = 'https://www.camcard.com/site/download';
+				}
+			}
+		},
+		contentClass: 'sg_animate move_y in'
+	});
+
+	$('#btn_vm').bind('click', function() {
+		dialog_vm.show();
+	});
+	$('#btn_vm_refresh').bind('click', function() {
+		dialog_vm.show(1);
+	});
+
+	/* demo4 */
+	var vm_test2 = sg.View.require('test1');
+	var dialog_vm2 = sg.Component.Dialog({
+		vm : vm_test2,
+		persist : true,
+		contentClass : 'sg_animate expansion_y in',
+		closeBtn : false
+	});
+	$('#btn_vm_no_btn_close').bind('click', function() {
+		dialog_vm2.show();
+	});
+	$('#btn_nosupport').bind('click', function(){
+		dialog_no_support.show();
+	})
+</script>
+</body>
+</html>

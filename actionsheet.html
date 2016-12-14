@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,shrink-to-fit=no">
+	<link rel="stylesheet" href="../css/main.css">
+	<link rel="stylesheet" href="../css/animate.css">
+	<link rel="stylesheet" href="../css/loading.css">
+	<link rel="stylesheet" href="../css/actionsheet.css">
+	<style>
+		body{
+			margin:0;
+			text-align: center;
+		}
+	</style>
+    <title>actionsheet</title>
+</head>
+<body>
+<div class="main" id="main">
+	<input type="button" id="btn" value="弹出actionsheet">
+</div>
+<script src="../js/tween.js" type="text/javascript"></script>
+<script src="../js/fastclick.js" type="text/javascript"></script>
+<script src="../js/jquery.js" type="text/javascript"></script>
+<script src="../js/loading.js" type="text/javascript"></script>
+<script src="../js/require.js" type="text/javascript"></script>
+<script src="../js/require_css.js" type="text/javascript"></script>
+<script src="../js/main.js" type="text/javascript"></script>
+<script src="../js/config.js" type="text/javascript"></script>
+<script src="../js/utils.js" type="text/javascript"></script>
+<script src="../js/template.js" type="text/javascript"></script>
+<script src="../js/components/action.js" type="text/javascript"></script>
+<script src="../js/cache.js" type="text/javascript"></script>
+<script src="../js/model.js" type="text/javascript"></script>
+<script src="../js/event.js" type="text/javascript"></script>
+<script src="../js/view.js" type="text/javascript"></script>
+<script src="../js/component.js" type="text/javascript"></script>
+<script src="../js/components/actionsheet.js" type="text/javascript"></script>
+<script>
+	sg.init();
+	$('#btn').bind('click', function() {
+		sg.Component.ActionSheet({
+			actionList : [
+				{
+					text : 'hello',
+					callback : function() {
+						console.log('hello');
+					}
+				},
+				{
+					text : 'world'
+				}
+			],
+			title : 'hello world',
+			cancelText : 'Cancel',
+			onCancel : function() {
+				console.log('cancel');
+			}
+		});
+	});
+</script>
+</body>
+</html>
